@@ -55,6 +55,20 @@ Full-page screenshots at 1440 px and 390 px were inspected section by section, a
 - Contrast on the hero is measured against the gradient's first colour stop. Text there sits over the darkest part of the gradient.
 - The serif font has no Devanagari or other Indic glyphs. The site is English-only.
 
-## 5. Live deployment verification
+## 5. Live deployment verification (15 October 2026, ~05:30 UTC)
 
-See the section appended after deployment below.
+Repository: https://github.com/ishansb/gimdc-2027-website · Live: https://ishansb.github.io/gimdc-2027-website/
+
+| Check | Result |
+|---|---|
+| GitHub Actions run #1 "Build and deploy to GitHub Pages" (npm ci → type check → tests → build → deploy) | Completed successfully (47 s) |
+| Home page returns 200 with the correct title, canonical URL, OG image URL and `noindex, nofollow` | Pass |
+| All 7 track pages load directly by URL (fresh request) | Pass (200) |
+| Unknown URL (`/no-such-page/`) returns the styled custom 404 page with absolute asset paths | Pass (HTTP 404, styled) |
+| `robots.txt` (Disallow for the demo), `sitemap.xml`, CSS, JS, fonts, favicon (SVG + PNG), apple-touch icon, OG image | All 200 with correct content types |
+| All five font faces loaded; no failed resource requests | Pass |
+| Only first-party origin contacted (`https://ishansb.github.io`) | Pass |
+| Payment button disabled; no form controls on the page | Pass |
+| No horizontal overflow at the tested desktop width | Pass |
+
+Note: anchor scrolling looked incomplete when tested in a *background* browser tab, because browsers pause smooth-scroll animation in hidden tabs. In a visible tab, the same build scrolls exactly to each section (checked locally: the Registration section lands 84 px below the top, as designed, by both direct URL and menu click).
