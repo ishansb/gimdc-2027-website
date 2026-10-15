@@ -1,0 +1,22 @@
+{
+  "name": "gimdc-2027-website",
+  "version": "1.0.0",
+  "private": true,
+  "description": "GIM Doctoral Conference 2027 (GIMDC 2027) website \u2014 static, zero-runtime-dependency site generator.",
+  "type": "module",
+  "license": "UNLICENSED",
+  "engines": {
+    "node": ">=22.18.0"
+  },
+  "scripts": {
+    "build": "node src/build.ts",
+    "preview": "node scripts/preview.ts",
+    "typecheck": "tsc --noEmit",
+    "test": "node --test \"tests/**/*.test.ts\"",
+    "check": "npm run typecheck && npm test && npm run build"
+  },
+  "devDependencies": {
+    "@types/node": "22.20.1",
+    "typescript": "6.0.3"
+  }
+}
